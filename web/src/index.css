@@ -1,0 +1,81 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/jetbrains-mono";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "Cascadia Code", monospace;
+
+  --color-ink-950: #06080a;
+  --color-ink-900: #0a0d11;
+  --color-ink-850: #0e1217;
+  --color-ink-800: #131820;
+  --color-ink-750: #182029;
+  --color-ink-700: #1f2833;
+  --color-ink-600: #2b3542;
+  --color-ink-500: #3e4a59;
+  --color-ink-400: #687586;
+  --color-ink-300: #95a1ae;
+  --color-ink-200: #c3cbd4;
+  --color-ink-100: #e8ecf0;
+
+  --color-phos: #7cf29c;
+  --color-phos-dim: #2f6b43;
+  --color-fail: #ff6b6b;
+  --color-fail-dim: #6b2a2a;
+  --color-warn: #ffb547;
+  --color-sky: #6cb6ff;
+  --color-violet: #b69cff;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  background: var(--color-ink-900);
+  color: var(--color-ink-100);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-image:
+    radial-gradient(circle at 20% -10%, rgb(124 242 156 / 0.06), transparent 40%),
+    linear-gradient(rgb(255 255 255 / 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(255 255 255 / 0.018) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+::selection {
+  background: rgb(124 242 156 / 0.3);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ink-600) transparent;
+}
+
+input[type="range"] {
+  accent-color: var(--color-phos);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgb(124 242 156 / 0.5); }
+  100% { box-shadow: 0 0 0 8px rgb(124 242 156 / 0); }
+}
+
+.live-dot {
+  animation: pulse-ring 1.4s ease-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-dot { animation: none; }
+}
